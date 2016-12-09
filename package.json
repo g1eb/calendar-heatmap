@@ -1,15 +1,15 @@
 {
-  "name": "calendar-heatmap",
+  "name": "calendar-heatmap-graph",
   "version": "0.0.1",
-  "description": "Calendar heatmap visualization for time series data.",
+  "description": "Calendar heatmap graph for time series data.",
   "homepage": "https://github.com/g1eb/calendar-heatmap#readme",
-  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/g1eb/calendar-heatmap.git"
   },
   "author": "g1eb",
   "license": "MIT",
+  "main": "index.html",
   "bugs": {
     "url": "https://github.com/g1eb/calendar-heatmap/issues"
   },
@@ -28,6 +28,7 @@
   "keywords": [
     "calendar",
     "heatmap",
+    "graph",
     "visualization",
     "chart",
     "time",
