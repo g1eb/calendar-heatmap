@@ -11,16 +11,16 @@ Aaand [Calendar View](https://bl.ocks.org/mbostock/4063318) by [Mike Bostock](ht
 Click <a href="https://rawgit.com/g1eb/calendar-heatmap/master/" target="_blank">here</a> for a live demo.
 
 ### Year overview
-[![calendar heatmap - year overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/screenshot_year_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
+[![calendar heatmap - year overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/images/screenshot_year_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
 
 ### Month overview
-[![calendar heatmap - month overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/screenshot_month_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
+[![calendar heatmap - month overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/images/screenshot_month_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
 
 ### Week overview
-[![calendar heatmap - week overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/screenshot_week_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
+[![calendar heatmap - week overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/images/screenshot_week_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
 
 ### Day overview
-[![calendar heatmap - day overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/screenshot_day_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
+[![calendar heatmap - day overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/images/screenshot_day_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
 
 ## Installation
 
