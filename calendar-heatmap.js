@@ -263,9 +263,9 @@ var calendarHeatmap = {
         tooltip_html += '<div>on ' + moment(d.date).format('dddd, MMM Do YYYY') + '</div><br>';
 
         // Add summary to the tooltip
-        for ( d of d.summary ) {
-          tooltip_html += '<div><span><strong>' + d.name + '</strong></span>';
-          tooltip_html += '<span>' + calendarHeatmap.formatTime(d.value) + '</span></div>';
+        for ( var i = 0; i < d.summary.length; i++ ) {
+          tooltip_html += '<div><span><strong>' + d.summary[i].name + '</strong></span>';
+          tooltip_html += '<span>' + calendarHeatmap.formatTime(d.summary[i].value) + '</span></div>';
         };
 
         // Calculate tooltip position
