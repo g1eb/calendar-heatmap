@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar Heatmap</title>
+  <link rel="stylesheet" type="text/css" href="calendar-heatmap.css">
+</head>
+<body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js" charset="utf-8"></script>
+  <script src="calendar-heatmap.js"></script>
+
+  <script>
+    (function () {
+      // Initialize random data for the demo
+      var now = moment().endOf('day').toDate();
+      var year_ago = moment().startOf('day').subtract(1, 'year').toDate();
+      var example_data = d3.time.days(year_ago, now).map(function (dateElement) {
+        return {
+          date: dateElement,
+          details: Array.apply(null, new Array(Math.floor(Math.random() * 15))).map(function(e, i, arr) {
+            return {
+              'name': 'Project ' + Math.floor(Math.random() * 10),
+              'date': function () {
+                var projectDate = new Date(dateElement.getTime());
+                projectDate.setHours(Math.floor(Math.random() * 24))
+                projectDate.setMinutes(Math.floor(Math.random() * 60));
+                return projectDate;
+              }(),
+              'value': 3600 * ((arr.length - i) / 5) + Math.floor(Math.random() * 3600)
+            }
+          }),
+          init: function () {
+            this.total = this.details.reduce(function (prev, e) {
+              return prev + e.value;
+            }, 0);
+            return this;
+          }
+        }.init();
+      });
+
+      // Set custom color for the calendar heatmap
+      var color = '#cd2327';
+
+      // Set overview type (choices are year, month and day)
+      var overview = 'year';
+
+      // Handler function
+      var print = function (val) {
+        console.log(val);
+      };
+
+      // Initialize calendar heatmap
+      calendarHeatmap.init(example_data, color, overview, print);
+    })();
+  </script>
+</body>
+</html>
