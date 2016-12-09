@@ -1,11 +1,14 @@
-# d3.js Calendar Heatmap
+# Calendar heatmap graph
 
 This [d3.js](https://d3js.org/) heatmap representing time series data is used to visualize tracked time over the past year, showing details for each of the days on demand.
 
-Inspired by Github's contribution chart.
+Includes visualization of year, month, week and day overview.  
 
-Based on [D3.js Calendar Heatmap](https://github.com/DKirwan/calendar-heatmap) by [Darragh Kirwan](https://github.com/DKirwan)  
-Aaand [Calendar View](https://bl.ocks.org/mbostock/4063318) by [Mike Bostock](https://github.com/mbostock)
+Inspired by [Github's contribution graph](https://help.github.com/articles/viewing-contributions-on-your-profile/#contributions-calendar)
+
+Based on [Calendar View](https://bl.ocks.org/mbostock/4063318) by [Mike Bostock](https://github.com/mbostock)
+
+Aaand [D3.js Calendar Heatmap](https://github.com/DKirwan/calendar-heatmap) by [Darragh Kirwan](https://github.com/DKirwan) 
 
 ## Demo
 Click <a href="https://rawgit.com/g1eb/calendar-heatmap/master/" target="_blank">here</a> for a live demo.
@@ -24,17 +27,23 @@ Click <a href="https://rawgit.com/g1eb/calendar-heatmap/master/" target="_blank"
 
 ## Installation
 
-- Install 'calendar-heatmap' with bower
+- Install 'calendar-heatmap-graph' with bower
 
 ```
-bower install calendar-heatmap
+bower install calendar-heatmap-graph
 ```
 
-- orrr include files directly:
+- Install 'calendar-heatmap-graph' with npm
 
 ```
-<link rel="stylesheet" type="text/css" href="calendar-heatmap.css">
-<script src="calendar-heatmap.js"></script>
+npm install calendar-heatmap
+```
+
+- Or include files directly in your html:
+
+```
+<link rel="stylesheet" type="text/css" href="dist/calendar-heatmap.min.css">
+<script src="dist/calendar-heatmap.min.js"></script>
 ```
 
 ### Properties
