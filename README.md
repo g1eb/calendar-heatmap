@@ -111,6 +111,10 @@ var data = [{
 
 See [index.html](https://github.com/g1eb/calendar-heatmap/blob/master/index.html) for an example implementation with random data or click <a href="https://rawgit.com/g1eb/calendar-heatmap/master/" target="_blank">here</a> for a live demo.
 
+## AngularJS Directive
+
+[Calendar heatmap graph anngular directive](https://github.com/g1eb/angular-calendar-heatmap)
+
 ## Dependencies
 
 * [d3.js](https://d3js.org/)
