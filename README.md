@@ -36,7 +36,7 @@ bower install calendar-heatmap-graph
 - Install 'calendar-heatmap-graph' with npm
 
 ```
-npm install calendar-heatmap
+npm install calendar-heatmap-graph
 ```
 
 - Or include files directly in your html:
