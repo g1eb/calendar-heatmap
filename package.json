@@ -1,6 +1,6 @@
 {
   "name": "calendar-heatmap-graph",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Calendar heatmap graph for time series data.",
   "homepage": "https://github.com/g1eb/calendar-heatmap#readme",
   "repository": {
@@ -33,6 +33,7 @@
     "visualization",
     "chart",
     "time",
+    "d3js",
     "d3"
   ]
 }
