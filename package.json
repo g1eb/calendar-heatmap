@@ -17,6 +17,7 @@
     "build": "gulp build"
   },
   "dependencies": {
+    "d3": "^3.5.16",
     "moment": "^2.13.0"
   },
   "devDependencies": {
