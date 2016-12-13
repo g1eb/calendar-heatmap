@@ -3,13 +3,13 @@
   "version": "0.0.2",
   "description": "Calendar heatmap graph for time series data.",
   "homepage": "https://github.com/g1eb/calendar-heatmap#readme",
+  "author": "g1eb",
+  "license": "MIT",
+  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/g1eb/calendar-heatmap.git"
   },
-  "author": "g1eb",
-  "license": "MIT",
-  "main": "index.html",
   "bugs": {
     "url": "https://github.com/g1eb/calendar-heatmap/issues"
   },
