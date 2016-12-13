@@ -15,8 +15,6 @@ gulp.task('css', function () {
 gulp.task('js', function () {
   gulp.src('src/*.js')
     .pipe(uglify())
-    //.pipe(uglify({mangle: {toplevel: true, except: ['d3']}}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
-    //.pipe(uglify().on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
     .pipe(concat('calendar-heatmap.min.js'))
     .pipe(gulp.dest('./dist'));
 });
