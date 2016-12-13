@@ -8,8 +8,8 @@
   ],
   "license": "MIT",
   "main": [
-    "dist/calendar-heatmap.js",
-    "dist/calendar-heatmap.css"
+    "dist/calendar-heatmap.min.js",
+    "dist/calendar-heatmap.min.css"
   ],
   "ignore": [
     "**/.*",
