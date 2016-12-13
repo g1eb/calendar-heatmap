@@ -113,7 +113,7 @@ See [index.html](https://github.com/g1eb/calendar-heatmap/blob/master/index.html
 
 ## AngularJS Directive
 
-[Calendar heatmap graph anngular directive](https://github.com/g1eb/angular-calendar-heatmap)
+[Calendar heatmap graph angular directive](https://github.com/g1eb/angular-calendar-heatmap)
 
 ## Dependencies
 
