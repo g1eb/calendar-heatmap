@@ -25,7 +25,7 @@ Click <a href="https://rawgit.com/g1eb/calendar-heatmap/master/" target="_blank"
 ### Day overview
 [![calendar heatmap - day overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/images/screenshot_day_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
 
-## Installation
+## Install
 
 - Install 'calendar-heatmap-graph' with bower
 
@@ -43,7 +43,7 @@ npm install calendar-heatmap-graph
 
 ```
 <link rel="stylesheet" type="text/css" href="dist/calendar-heatmap.min.css">
-<script src="dist/calendar-heatmap.min.js"></script>
+<script type="text/javascript" src="dist/calendar-heatmap.min.js"></script>
 ```
 
 ### Properties
