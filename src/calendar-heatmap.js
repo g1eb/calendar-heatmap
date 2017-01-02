@@ -77,10 +77,9 @@ var calendarHeatmap = {
     // Calculate dimensions based on available width
     var calcDimensions = function () {
 
-      var dayInMillis = 1000*60*60*24;
-      var extraDays = ((moment() - moment().subtract(1, 'year').subtract(1, 'day')) / dayInMillis) - 52 * 7;
-      var currentDay = Math.ceil((moment() - moment().startOf('week')) / dayInMillis);
-      var numWeeks = currentDay < extraDays ? 54 : 53;
+      var dayIndex = Math.floor((moment() - moment().subtract(1, 'year').startOf('week')) / 86400000);
+      var colIndex = Math.trunc(dayIndex / 7);
+      var numWeeks = colIndex + 1;
 
       calendarHeatmap.settings.width = container.offsetWidth < 1000 ? 1000 : container.offsetWidth;
       calendarHeatmap.settings.item_size = ((calendarHeatmap.settings.width - calendarHeatmap.settings.label_padding) / numWeeks - calendarHeatmap.settings.gutter);
@@ -168,8 +167,9 @@ var calendarHeatmap = {
 
     var calcItemX = function (d) {
       var date = moment(d.date);
-      var week_num = date.week() - year_ago.week() + (year_ago.weeksInYear() * (date.weekYear() - year_ago.weekYear()));
-      return week_num * (calendarHeatmap.settings.item_size + calendarHeatmap.settings.gutter) + calendarHeatmap.settings.label_padding;
+      var dayIndex = Math.floor((date - moment(year_ago).startOf('week')) / 86400000);
+      var colIndex = Math.trunc(dayIndex / 7);
+      return colIndex * (calendarHeatmap.settings.item_size + calendarHeatmap.settings.gutter) + calendarHeatmap.settings.label_padding;
     };
     var calcItemY = function (d) {
       return calendarHeatmap.settings.label_padding + moment(d.date).weekday() * (calendarHeatmap.settings.item_size + calendarHeatmap.settings.gutter);
