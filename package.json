@@ -1,6 +1,6 @@
 {
   "name": "calendar-heatmap-graph",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Calendar heatmap graph for time series data.",
   "homepage": "https://github.com/g1eb/calendar-heatmap#readme",
   "author": "g1eb",
