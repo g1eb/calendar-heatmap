@@ -77,7 +77,7 @@ var calendarHeatmap = {
     // Calculate dimensions based on available width
     var calcDimensions = function () {
 
-      var dayIndex = Math.floor((moment() - moment().subtract(1, 'year').startOf('week')) / 86400000);
+      var dayIndex = Math.round((moment() - moment().subtract(1, 'year').startOf('week')) / 86400000);
       var colIndex = Math.trunc(dayIndex / 7);
       var numWeeks = colIndex + 1;
 
@@ -167,7 +167,7 @@ var calendarHeatmap = {
 
     var calcItemX = function (d) {
       var date = moment(d.date);
-      var dayIndex = Math.floor((date - moment(year_ago).startOf('week')) / 86400000);
+      var dayIndex = Math.round((date - moment(year_ago).startOf('week')) / 86400000);
       var colIndex = Math.trunc(dayIndex / 7);
       return colIndex * (calendarHeatmap.settings.item_size + calendarHeatmap.settings.gutter) + calendarHeatmap.settings.label_padding;
     };
