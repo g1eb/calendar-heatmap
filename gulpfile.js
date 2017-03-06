@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var cssnano = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
- 
+
 gulp.task('build', ['js', 'css']);
 
 gulp.task('css', function () {
