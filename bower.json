@@ -1,10 +1,10 @@
 {
   "name": "calendar-heatmap-graph",
-  "version": "0.0.5",
-  "description": "Calendar heatmap graph for time series data.",
+  "version": "0.0.6",
+  "description": "d3.js calendar heatmap graph.",
   "homepage": "https://github.com/g1eb/calendar-heatmap",
   "authors": [
-    "G1eb <mail@g1eb.com>"
+    "g1eb <mail@g1eb.com> (https://g1eb.com)"
   ],
   "license": "MIT",
   "main": [
