@@ -662,6 +662,9 @@ var calendarHeatmap = {
           .ease('ease-in')
           .style('opacity', 1);
       });
+
+    // Add button to switch back to year overview
+    calendarHeatmap.drawButton();
   },
 
 
