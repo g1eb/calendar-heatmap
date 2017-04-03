@@ -14,8 +14,8 @@
     (function () {
       // Initialize random data for the demo
       var now = moment().endOf('day').toDate();
-      var year_ago = moment().startOf('day').subtract(1, 'year').toDate();
-      var example_data = d3.time.days(year_ago, now).map(function (dateElement) {
+      var time_ago = moment().startOf('day').subtract(10, 'year').toDate();
+      var example_data = d3.time.days(time_ago, now).map(function (dateElement) {
         return {
           date: dateElement,
           details: Array.apply(null, new Array(Math.floor(Math.random() * 15))).map(function(e, i, arr) {
