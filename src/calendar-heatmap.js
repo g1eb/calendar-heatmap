@@ -221,7 +221,7 @@ var calendarHeatmap = {
         calendarHeatmap.in_transition = true;
 
         // Set selected date to the one clicked on
-        calendarHeatmap.selected = d.date;
+        calendarHeatmap.selected = d;
 
         // Hide tooltip
         calendarHeatmap.hideTooltip();
@@ -331,7 +331,7 @@ var calendarHeatmap = {
         calendarHeatmap.in_transition = true;
 
         // Set selected month to the one clicked on
-        calendarHeatmap.selected = d.date;
+        calendarHeatmap.selected = d;
 
         // Hide tooltip
         calendarHeatmap.hideTooltip();
