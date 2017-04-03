@@ -1424,6 +1424,23 @@ var calendarHeatmap = {
   /**
    * Transition and remove items and labels related to year overview
    */
+  removeGlobalOverview: function () {
+    calendarHeatmap.items.selectAll('.item-block-year')
+      .transition()
+      .duration(calendarHeatmap.settings.transition_duration)
+      .ease('ease-in')
+      .style('opacity', 0)
+      .attr('x', function (d, i) {
+        return ( i % 2 === 0) ? - calendarHeatmap.settings.width/3 : calendarHeatmap.settings.width/3;
+      })
+      .remove();
+    calendarHeatmap.labels.selectAll('.label-year').remove();
+  },
+
+
+  /**
+   * Transition and remove items and labels related to year overview
+   */
   removeYearOverview: function () {
     calendarHeatmap.items.selectAll('.item-circle')
       .transition()
