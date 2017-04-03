@@ -178,7 +178,7 @@ var calendarHeatmap = {
       return moment(d);
     });
     var yearScale = d3.scale.ordinal()
-      .rangeRoundBands([calendarHeatmap.settings.label_padding, calendarHeatmap.settings.width], 0.05)
+      .rangeRoundBands([0, calendarHeatmap.settings.width], 0.05)
       .domain(year_labels.map(function(d) {
         return d.year();
       }));
