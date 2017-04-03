@@ -1439,7 +1439,9 @@ var calendarHeatmap = {
         calendarHeatmap.in_transition = true;
 
         // Clean the canvas from whichever overview type was on
-        if ( calendarHeatmap.overview === 'month' ) {
+        if ( calendarHeatmap.overview === 'year' ) {
+          calendarHeatmap.removeYearOverview();
+        } else if ( calendarHeatmap.overview === 'month' ) {
           calendarHeatmap.removeMonthOverview();
         } else if ( calendarHeatmap.overview === 'week' ) {
           calendarHeatmap.removeWeekOverview();
@@ -1502,6 +1504,7 @@ var calendarHeatmap = {
       .remove();
     calendarHeatmap.labels.selectAll('.label-day').remove();
     calendarHeatmap.labels.selectAll('.label-month').remove();
+    calendarHeatmap.hideBackButton();
   },
 
 
