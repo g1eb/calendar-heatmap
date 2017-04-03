@@ -136,7 +136,9 @@ var calendarHeatmap = {
    * Draw the chart based on the current overview type
    */
   drawChart: function () {
-    if ( calendarHeatmap.overview === 'year' ) {
+    if ( calendarHeatmap.overview === 'global' ) {
+      calendarHeatmap.drawGlobalOverview();
+    } else if ( calendarHeatmap.overview === 'year' ) {
       calendarHeatmap.drawYearOverview();
     } else if ( calendarHeatmap.overview === 'month' ) {
       calendarHeatmap.drawMonthOverview();
@@ -145,6 +147,18 @@ var calendarHeatmap = {
     } else if ( calendarHeatmap.overview === 'day' ) {
       calendarHeatmap.drawDayOverview();
     }
+  },
+
+
+  /**
+   * Draw global overview (multiple years)
+   */
+  drawGlobalOverview: function () {
+    // Add current overview to the history
+    if ( calendarHeatmap.history[calendarHeatmap.history.length-1] !== calendarHeatmap.overview ) {
+      calendarHeatmap.history.push(calendarHeatmap.overview);
+    }
+
   },
 
 
