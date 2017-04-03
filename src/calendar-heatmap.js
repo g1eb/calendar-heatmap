@@ -182,6 +182,81 @@ var calendarHeatmap = {
       .domain(year_labels.map(function(d) {
         return d.year();
       }));
+
+    // Add month data items to the overview
+    calendarHeatmap.items.selectAll('.item-block-year').remove();
+    var item_block = calendarHeatmap.items.selectAll('.item-block-year')
+      .data(year_labels)
+      .enter()
+      .append('rect')
+      .attr('class', 'item item-block-year')
+      .attr('width', function () {
+        return (calendarHeatmap.settings.width - calendarHeatmap.settings.label_padding) / year_labels.length - calendarHeatmap.settings.gutter * 5;
+      })
+      .attr('height', function () {
+        return calendarHeatmap.settings.height - calendarHeatmap.settings.label_padding;
+      })
+      .attr('transform', function (d) {
+        return 'translate(' + yearScale(d.year()) + ',' + 0 + ')';
+      })
+      .attr('fill', function (d) {
+        var total = calendarHeatmap.data.reduce(function (prev, current) {
+          if ( moment(current.date).year() === d.year() ) {
+            prev += current.total;
+          }
+          return prev;
+        }, 0);
+        var color = d3.scale.linear()
+          .range(['#ffffff', calendarHeatmap.color || '#ff4500'])
+          .domain([-0.15 * max_value, max_value]);
+        return color(total) || '#ff4500';
+      })
+      .on('click', function (d) {
+        if ( calendarHeatmap.in_transition ) { return; }
+
+        // Set in_transition flag
+        calendarHeatmap.in_transition = true;
+
+        // Set selected date to the one clicked on
+        calendarHeatmap.selected = d;
+
+        // Hide tooltip
+        calendarHeatmap.hideTooltip();
+
+        // Remove all month overview related items and labels
+        calendarHeatmap.removeGlobalOverview();
+
+        // Redraw the chart
+        calendarHeatmap.overview = 'year';
+        calendarHeatmap.drawChart();
+      })
+      .style('opacity', 0)
+      .transition()
+        .delay(function () {
+          return (Math.cos(Math.PI * Math.random()) + 1) * calendarHeatmap.settings.transition_duration;
+        })
+        .duration(function () {
+          return calendarHeatmap.settings.transition_duration;
+        })
+        .ease('ease-in')
+        .style('opacity', 1)
+        .call(function (transition, callback) {
+          if ( transition.empty() ) {
+            callback();
+          }
+          var n = 0;
+          transition
+            .each(function() { ++n; })
+            .each('end', function() {
+              if ( !--n ) {
+                callback.apply(this, arguments);
+              }
+            });
+          }, function() {
+            calendarHeatmap.in_transition = false;
+          });
+
+
   },
 
 
