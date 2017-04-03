@@ -547,9 +547,7 @@ var calendarHeatmap = {
           });
 
     // Add month labels
-    var today = moment().endOf('day');
-    var today_year_ago = moment().startOf('day').subtract(1, 'year');
-    var month_labels = d3.time.months(today_year_ago.startOf('month'), today);
+    var month_labels = d3.time.months(start_of_year, end_of_year);
     var monthScale = d3.scale.linear()
       .range([0, calendarHeatmap.settings.width])
       .domain([0, month_labels.length]);
