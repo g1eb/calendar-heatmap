@@ -159,6 +159,19 @@ var calendarHeatmap = {
       calendarHeatmap.history.push(calendarHeatmap.overview);
     }
 
+    // Define start and end of the dataset
+    var start = moment(calendarHeatmap.data[0].date).startOf('year');
+    var end = moment(calendarHeatmap.data[calendarHeatmap.data.length-1].date).endOf('year');
+
+    // Define year labels and axis
+    var year_labels = d3.time.years(start, end).map(function (d) {
+      return moment(d);
+    });
+    var yearScale = d3.scale.ordinal()
+      .rangeRoundBands([calendarHeatmap.settings.label_padding, calendarHeatmap.settings.width], 0.05)
+      .domain(year_labels.map(function(d) {
+        return d.year();
+      }));
   },
 
 
