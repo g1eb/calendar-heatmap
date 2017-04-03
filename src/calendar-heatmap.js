@@ -286,6 +286,63 @@ var calendarHeatmap = {
           }, function() {
             calendarHeatmap.in_transition = false;
           });
+
+    // Add year labels
+    calendarHeatmap.labels.selectAll('.label-year').remove();
+    calendarHeatmap.labels.selectAll('.label-year')
+      .data(year_labels)
+      .enter()
+      .append('text')
+      .attr('class', 'label label-year')
+      .attr('font-size', function () {
+        return Math.floor(calendarHeatmap.settings.label_padding / 3) + 'px';
+      })
+      .text(function (d) {
+        return d.year();
+      })
+      .attr('x', function (d) {
+        return yearScale(d.year());
+      })
+      .attr('y', calendarHeatmap.settings.label_padding / 2)
+      .on('mouseenter', function (year_label) {
+        if ( calendarHeatmap.in_transition ) { return; }
+
+        calendarHeatmap.items.selectAll('.item-block-year')
+          .transition()
+          .duration(calendarHeatmap.settings.transition_duration)
+          .ease('ease-in')
+          .style('opacity', function (d) {
+            return ( moment(d.date).year() === year_label.year() ) ? 1 : 0.1;
+          });
+      })
+      .on('mouseout', function () {
+        if ( calendarHeatmap.in_transition ) { return; }
+
+        calendarHeatmap.items.selectAll('.item-block-year')
+          .transition()
+          .duration(calendarHeatmap.settings.transition_duration)
+          .ease('ease-in')
+          .style('opacity', 1);
+      })
+      .on('click', function (d) {
+        if ( calendarHeatmap.in_transition ) { return; }
+
+        // Set in_transition flag
+        calendarHeatmap.in_transition = true;
+
+        // Set selected month to the one clicked on
+        calendarHeatmap.selected = d.date;
+
+        // Hide tooltip
+        calendarHeatmap.hideTooltip();
+
+        // Remove all year overview related items and labels
+        calendarHeatmap.removeGlobalOverview();
+
+        // Redraw the chart
+        calendarHeatmap.overview = 'year';
+        calendarHeatmap.drawChart();
+      });
   },
 
 
