@@ -163,6 +163,11 @@ var calendarHeatmap = {
     var start = moment(calendarHeatmap.data[0].date).startOf('year');
     var end = moment(calendarHeatmap.data[calendarHeatmap.data.length-1].date).endOf('year');
 
+    // Calculate max value of the data
+    var max_value = d3.max(calendarHeatmap.data, function (d) {
+      return d.total;
+    });
+
     // Define year labels and axis
     var year_labels = d3.time.years(start, end).map(function (d) {
       return moment(d);
