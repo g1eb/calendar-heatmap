@@ -195,7 +195,7 @@ var calendarHeatmap = {
     // Add month data items to the overview
     calendarHeatmap.items.selectAll('.item-block-year').remove();
     var item_block = calendarHeatmap.items.selectAll('.item-block-year')
-      .data(year_labels)
+      .data(year_data)
       .enter()
       .append('rect')
       .attr('class', 'item item-block-year')
@@ -206,19 +206,13 @@ var calendarHeatmap = {
         return calendarHeatmap.settings.height - calendarHeatmap.settings.label_padding;
       })
       .attr('transform', function (d) {
-        return 'translate(' + yearScale(d.year()) + ',' + calendarHeatmap.settings.tooltip_padding * 2 + ')';
+        return 'translate(' + yearScale(d.date.year()) + ',' + calendarHeatmap.settings.tooltip_padding * 2 + ')';
       })
       .attr('fill', function (d) {
-        var total = calendarHeatmap.data.reduce(function (prev, current) {
-          if ( moment(current.date).year() === d.year() ) {
-            prev += current.total;
-          }
-          return prev;
-        }, 0);
         var color = d3.scale.linear()
           .range(['#ffffff', calendarHeatmap.color || '#ff4500'])
           .domain([-0.15 * max_value, max_value]);
-        return color(total) || '#ff4500';
+        return color(d.total) || '#ff4500';
       })
       .on('click', function (d) {
         if ( calendarHeatmap.in_transition ) { return; }
@@ -227,7 +221,7 @@ var calendarHeatmap = {
         calendarHeatmap.in_transition = true;
 
         // Set selected date to the one clicked on
-        calendarHeatmap.selected = d;
+        calendarHeatmap.selected = d.date;
 
         // Hide tooltip
         calendarHeatmap.hideTooltip();
@@ -243,21 +237,13 @@ var calendarHeatmap = {
       .on('mouseover', function(d) {
         if ( calendarHeatmap.in_transition ) { return; }
 
-        // Calculate total value for that specific year
-        var total = calendarHeatmap.data.reduce(function (prev, current) {
-          if ( moment(current.date).year() === d.year() ) {
-            prev += current.total;
-          }
-          return prev;
-        }, 0);
-
         // Construct tooltip
         var tooltip_html = '';
-        tooltip_html += '<div class="header"><strong>' + d.year() + '</strong></div><br>';
-        tooltip_html += '<div><strong>' + (total ? calendarHeatmap.formatTime(total) : 'No time') + ' tracked</strong></div>';
+        tooltip_html += '<div class="header"><strong>' + d.date.year() + '</strong></div><br>';
+        tooltip_html += '<div><strong>' + (d.total ? calendarHeatmap.formatTime(d.total) : 'No time') + ' tracked</strong></div>';
 
         // Calculate tooltip position
-        var x = yearScale(d.year()) + calendarHeatmap.settings.tooltip_padding;
+        var x = yearScale(d.date.year()) + calendarHeatmap.settings.tooltip_padding;
         while ( calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 3) ) {
           x -= 10;
         }
@@ -300,8 +286,6 @@ var calendarHeatmap = {
           }, function() {
             calendarHeatmap.in_transition = false;
           });
-
-
   },
 
 
@@ -864,7 +848,6 @@ var calendarHeatmap = {
         calendarHeatmap.overview = 'week';
         calendarHeatmap.drawChart();
       });
-
 
     // Add day labels
     calendarHeatmap.labels.selectAll('.label-day').remove();
