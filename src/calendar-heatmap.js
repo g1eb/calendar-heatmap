@@ -197,7 +197,7 @@ var calendarHeatmap = {
         return calendarHeatmap.settings.height - calendarHeatmap.settings.label_padding;
       })
       .attr('transform', function (d) {
-        return 'translate(' + yearScale(d.year()) + ',' + 0 + ')';
+        return 'translate(' + yearScale(d.year()) + ',' + calendarHeatmap.settings.tooltip_padding * 2 + ')';
       })
       .attr('fill', function (d) {
         var total = calendarHeatmap.data.reduce(function (prev, current) {
