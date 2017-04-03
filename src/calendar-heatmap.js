@@ -263,8 +263,8 @@ var calendarHeatmap = {
         calendarHeatmap.hideTooltip();
       })
       .transition()
-        .delay(function () {
-          return (Math.cos(Math.PI * Math.random()) + 1) * calendarHeatmap.settings.transition_duration;
+        .delay(function (d, i) {
+          return calendarHeatmap.settings.transition_duration * (i + 1) / 10;
         })
         .duration(function () {
           return calendarHeatmap.settings.transition_duration;
@@ -1480,11 +1480,8 @@ var calendarHeatmap = {
     calendarHeatmap.items.selectAll('.item-block-year')
       .transition()
       .duration(calendarHeatmap.settings.transition_duration)
-      .ease('ease-in')
+      .ease('ease-out')
       .style('opacity', 0)
-      .attr('x', function (d, i) {
-        return ( i % 2 === 0) ? - calendarHeatmap.settings.width/3 : calendarHeatmap.settings.width/3;
-      })
       .remove();
     calendarHeatmap.labels.selectAll('.label-year').remove();
   },
