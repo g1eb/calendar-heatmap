@@ -1458,9 +1458,9 @@ var calendarHeatmap = {
       .attr('r', calendarHeatmap.settings.item_size / 2);
     button.append('text')
       .attr('x', calendarHeatmap.settings.label_padding / 2.25)
-      .attr('y', calendarHeatmap.settings.label_padding / 2.75)
+      .attr('y', calendarHeatmap.settings.label_padding / 2.5)
       .attr('dy', function () {
-        return Math.floor(calendarHeatmap.settings.width / 100) / 2.5;
+        return Math.floor(calendarHeatmap.settings.width / 100) / 3;
       })
       .attr('font-size', function () {
         return Math.floor(calendarHeatmap.settings.label_padding / 3) + 'px';
