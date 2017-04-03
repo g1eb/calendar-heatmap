@@ -389,7 +389,7 @@ var calendarHeatmap = {
 
     calendarHeatmap.items.selectAll('.item-circle').remove();
     calendarHeatmap.items.selectAll('.item-circle')
-      .data(calendarHeatmap.data)
+      .data(year_data)
       .enter()
       .append('rect')
       .attr('class', 'item item-circle')
