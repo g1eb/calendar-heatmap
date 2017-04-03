@@ -231,6 +231,42 @@ var calendarHeatmap = {
         calendarHeatmap.drawChart();
       })
       .style('opacity', 0)
+      .on('mouseover', function(d) {
+        if ( calendarHeatmap.in_transition ) { return; }
+
+        // Calculate total value for that specific year
+        var total = calendarHeatmap.data.reduce(function (prev, current) {
+          if ( moment(current.date).year() === d.year() ) {
+            prev += current.total;
+          }
+          return prev;
+        }, 0);
+
+        // Construct tooltip
+        var tooltip_html = '';
+        tooltip_html += '<div class="header"><strong>' + d.year() + '</strong></div><br>';
+        tooltip_html += '<div><strong>' + (total ? calendarHeatmap.formatTime(total) : 'No time') + ' tracked</strong></div>';
+
+        // Calculate tooltip position
+        var x = yearScale(d.year()) + calendarHeatmap.settings.tooltip_padding;
+        while ( calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 3) ) {
+          x -= 10;
+        }
+        var y = calendarHeatmap.settings.tooltip_padding * 3;
+
+        // Show tooltip
+        calendarHeatmap.tooltip.html(tooltip_html)
+          .style('left', x + 'px')
+          .style('top', y + 'px')
+          .transition()
+            .duration(calendarHeatmap.settings.transition_duration / 2)
+            .ease('ease-in')
+            .style('opacity', 1);
+      })
+      .on('mouseout', function () {
+        if ( calendarHeatmap.in_transition ) { return; }
+        calendarHeatmap.hideTooltip();
+      })
       .transition()
         .delay(function () {
           return (Math.cos(Math.PI * Math.random()) + 1) * calendarHeatmap.settings.transition_duration;
