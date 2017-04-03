@@ -163,14 +163,23 @@ var calendarHeatmap = {
     var start = moment(calendarHeatmap.data[0].date).startOf('year');
     var end = moment(calendarHeatmap.data[calendarHeatmap.data.length-1].date).endOf('year');
 
+    // Define array of years and total values
+    var year_data = d3.time.years(start, end).map(function (d) {
+      var date = moment(d);
+      return {
+        'date': date,
+        'total': calendarHeatmap.data.reduce(function (prev, current) {
+          if ( moment(current.date).year() === date.year() ) {
+            prev += current.total;
+          }
+          return prev;
+        }, 0)
+      };
+    });
+
     // Calculate max value of all the years in the dataset
-    var max_value = d3.max(d3.time.years(start, end), function (d) {
-      return calendarHeatmap.data.reduce(function (prev, current) {
-        if ( moment(current.date).year() === moment(d).year() ) {
-          prev += current.total;
-        }
-        return prev;
-      }, 0);
+    var max_value = d3.max(year_data, function (d) {
+      return d.total;
     });
 
     // Define year labels and axis
