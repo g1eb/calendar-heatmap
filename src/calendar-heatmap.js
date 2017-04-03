@@ -189,17 +189,27 @@ var calendarHeatmap = {
       calendarHeatmap.history.push(calendarHeatmap.overview);
     }
 
-    var year_ago = moment().startOf('day').subtract(1, 'year');
-    var max_value = d3.max(calendarHeatmap.data, function (d) {
+    // Define start and end date of the selected year
+    var start_of_year = moment(calendarHeatmap.selected.date).startOf('year');
+    var end_of_year = moment(calendarHeatmap.selected.date).endOf('year');
+
+    // Filter data down to the selected year
+    var year_data = calendarHeatmap.data.filter(function (d) {
+      return start_of_year <= moment(d.date) && moment(d.date) < end_of_year;
+    });
+
+    // Calculate max value of the year data
+    var max_value = d3.max(year_data, function (d) {
       return d.total;
     });
+
     var color = d3.scale.linear()
       .range(['#ffffff', calendarHeatmap.color || '#ff4500'])
       .domain([-0.15 * max_value, max_value]);
 
     var calcItemX = function (d) {
       var date = moment(d.date);
-      var dayIndex = Math.round((date - moment(year_ago).startOf('week')) / 86400000);
+      var dayIndex = Math.round((date - moment(start_of_year).startOf('week')) / 86400000);
       var colIndex = Math.trunc(dayIndex / 7);
       return colIndex * (calendarHeatmap.settings.item_size + calendarHeatmap.settings.gutter) + calendarHeatmap.settings.label_padding;
     };
