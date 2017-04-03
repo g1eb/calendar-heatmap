@@ -30,8 +30,8 @@ var calendarHeatmap = {
     calendarHeatmap.color = color || '#ff4500';
 
     // Initialize current overview type and history
-    calendarHeatmap.overview = overview || 'year';
-    calendarHeatmap.history = ['year'];
+    calendarHeatmap.overview = overview || 'global';
+    calendarHeatmap.history = ['global'];
     calendarHeatmap.selected = {};
 
     // Set handler function
