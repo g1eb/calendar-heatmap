@@ -1590,20 +1590,16 @@ var calendarHeatmap = {
    */
   formatTime: function (seconds) {
     var sec_num = parseInt(seconds, 10);
-    var days = Math.floor(sec_num / 86400);
-    var hours = Math.floor((sec_num - (days * 86400)) / 3600);
-    var minutes = Math.floor((sec_num - (days * 86400) - (hours * 3600)) / 60);
+    var hours = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
     var time = '';
-    if ( days > 0 ) {
-      time += (days === 1) ? '1 day ' : days + ' days ';
-    }
     if ( hours > 0 ) {
-      time += (hours === 1) ? '1 hour ' : hours + ' hours ';
+      time += hours === 1 ? '1 hour ' : hours + ' hours ';
     }
     if ( minutes > 0 ) {
-      time += (minutes === 1) ? '1 minute' : minutes + ' minutes';
+      time += minutes === 1 ? '1 minute' : minutes + ' minutes';
     }
-    if ( days === 0 && hours === 0 && minutes === 0 ) {
+    if ( hours === 0 && minutes === 0 ) {
       time = seconds + ' seconds';
     }
     return time;
