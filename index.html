@@ -27,7 +27,7 @@
                 projectDate.setMinutes(Math.floor(Math.random() * 60));
                 return projectDate;
               }(),
-              'value': 3600 * ((arr.length - i) / 5) + Math.floor(Math.random() * 3600) * (Math.round(Math.random() * (index / 365)) * 5)
+              'value': 3600 * ((arr.length - i) / 5) + Math.floor(Math.random() * 3600) * Math.round(Math.random() * (index / 365))
             }
           }),
           init: function () {
