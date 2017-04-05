@@ -12,6 +12,9 @@ Aaand [D3.js Calendar Heatmap](https://github.com/DKirwan/calendar-heatmap) by [
 ## Demo
 Click <a href="https://rawgit.com/g1eb/calendar-heatmap/master/" target="_blank">here</a> for a live demo.
 
+### Global overview
+[![calendar heatmap - global overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/images/screenshot_global_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
+
 ### Year overview
 [![calendar heatmap - year overview](https://raw.githubusercontent.com/g1eb/calendar-heatmap/master/images/screenshot_year_overview.png)](https://rawgit.com/g1eb/calendar-heatmap/master/)
 
