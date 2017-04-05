@@ -264,8 +264,14 @@ var calendarHeatmap = {
 
         // Construct tooltip
         var tooltip_html = '';
-        tooltip_html += '<div class="header"><strong>' + d.date.year() + '</strong></div><br>';
-        tooltip_html += '<div><strong>' + (d.total ? calendarHeatmap.formatTime(d.total) : 'No time') + ' tracked</strong></div>';
+        tooltip_html += '<div class="header"><strong>' + (d.total ? calendarHeatmap.formatTime(d.total) : 'No time') + ' tracked</strong></div>';
+        tooltip_html += '<div>in ' + d.date.year() + '</div><br>';
+
+        // Add summary to the tooltip
+        for ( var i = 0; i < d.summary.length; i++ ) {
+          tooltip_html += '<div><span><strong>' + d.summary[i].name + '</strong></span>';
+          tooltip_html += '<span>' + calendarHeatmap.formatTime(d.summary[i].value) + '</span></div>';
+        };
 
         // Calculate tooltip position
         var x = yearScale(d.date.year()) + calendarHeatmap.settings.tooltip_padding;
