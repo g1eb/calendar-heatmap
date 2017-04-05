@@ -173,7 +173,32 @@ var calendarHeatmap = {
             prev += current.total;
           }
           return prev;
-        }, 0)
+        }, 0),
+        'summary': function () {
+          var summary = calendarHeatmap.data.reduce(function (summary, d) {
+            if ( moment(d.date).year() === date.year() ) {
+              for ( var i = 0; i < d.summary.length; i++ ) {
+                if ( !summary[d.summary[i].name] ) {
+                  summary[d.summary[i].name] = {
+                    'value': d.summary[i].value,
+                  };
+                } else {
+                  summary[d.summary[i].name].value += d.summary[i].value;
+                }
+              }
+            }
+            return summary;
+          }, {});
+          var unsorted_summary = Object.keys(summary).map(function (key) {
+            return {
+              'name': key,
+              'value': summary[key].value
+            };
+          });
+          return unsorted_summary.sort(function (a, b) {
+            return b.value - a.value;
+          });
+        }(),
       };
     });
 
