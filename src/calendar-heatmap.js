@@ -311,8 +311,8 @@ var calendarHeatmap = {
         }
 
         // Calculate tooltip position
-        var x = yearScale(d.date.year()) + calendarHeatmap.settings.tooltip_padding;
-        while ( calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 3) ) {
+        var x = yearScale(d.date.year()) + calendarHeatmap.settings.tooltip_padding * 2;
+        while ( calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 5) ) {
           x -= 10;
         }
         var y = calendarHeatmap.settings.tooltip_padding * 3;
