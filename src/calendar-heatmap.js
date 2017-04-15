@@ -269,22 +269,22 @@ var calendarHeatmap = {
         var sec = parseInt(d.total, 10);
         var days = Math.floor(sec / 86400);
         if ( days > 0 ) {
-          tooltip_html += '<span>' + days + ' days</span></div>';
+          tooltip_html += '<span>' + (days === 1 ? '1 day' : days + ' days') + '</span></div>';
         }
         var hours = Math.floor((sec - (days * 86400)) / 3600);
         if ( hours > 0 ) {
           if ( days > 0 ) {
-            tooltip_html += '<div><span></span><span>' + hours + ' hours</span></div>';
+            tooltip_html += '<div><span></span><span>' + (hours === 1 ? '1 hour' : hours + ' hours') + '</span></div>';
           } else {
-            tooltip_html += '<span>' + hours + ' hours</span></div>';
+            tooltip_html += '<span>' + (hours === 1 ? '1 hour' : hours + ' hours') + '</span></div>';
           }
         }
         var minutes = Math.floor((sec - (days * 86400) - (hours * 3600)) / 60);
         if ( minutes > 0 ) {
           if ( days > 0 || hours > 0 ) {
-            tooltip_html += '<div><span></span><span>' + minutes + ' minutes</span></div>';
+            tooltip_html += '<div><span></span><span>' + (minutes === 1 ? '1 minute' : minutes + ' minutes') + '</span></div>';
           } else {
-            tooltip_html += '<span>' + minutes + ' minutes</span></div>';
+            tooltip_html += '<span>' + (minutes === 1 ? '1 minute' : minutes + ' minutes') + '</span></div>';
           }
         }
         tooltip_html += '<br />';
