@@ -692,7 +692,7 @@ var calendarHeatmap = {
           .style('opacity', 1);
       });
 
-    // Add button to switch back to year overview
+    // Add button to switch back to previous overview
     calendarHeatmap.drawButton();
   },
 
@@ -978,7 +978,7 @@ var calendarHeatmap = {
           .style('opacity', 1);
       });
 
-    // Add button to switch back to year overview
+    // Add button to switch back to previous overview
     calendarHeatmap.drawButton();
   },
 
@@ -1237,7 +1237,7 @@ var calendarHeatmap = {
           .style('opacity', 1);
       });
 
-    // Add button to switch back to year overview
+    // Add button to switch back to previous overview
     calendarHeatmap.drawButton();
   },
 
@@ -1448,7 +1448,7 @@ var calendarHeatmap = {
           .style('opacity', 0.5);
       });
 
-    // Add button to switch back to year overview
+    // Add button to switch back to previous overview
     calendarHeatmap.drawButton();
   },
 
@@ -1505,7 +1505,7 @@ var calendarHeatmap = {
 
 
   /**
-   * Transition and remove items and labels related to year overview
+   * Transition and remove items and labels related to global overview
    */
   removeGlobalOverview: function () {
     calendarHeatmap.items.selectAll('.item-block-year')
