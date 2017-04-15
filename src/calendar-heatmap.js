@@ -264,8 +264,30 @@ var calendarHeatmap = {
 
         // Construct tooltip
         var tooltip_html = '';
-        tooltip_html += '<div class="header"><strong>' + (d.total ? calendarHeatmap.formatTime(d.total) : 'No time') + ' tracked</strong></div>';
-        tooltip_html += '<div>in ' + d.date.year() + '</div><br>';
+        tooltip_html += '<div><span><strong>Total time tracked:</strong></span>';
+
+        var sec = parseInt(d.total, 10);
+        var days = Math.floor(sec / 86400);
+        if ( days > 0 ) {
+          tooltip_html += '<span>' + days + ' days</span></div>';
+        }
+        var hours = Math.floor((sec - (days * 86400)) / 3600);
+        if ( hours > 0 ) {
+          if ( days > 0 ) {
+            tooltip_html += '<div><span></span><span>' + hours + ' hours</span></div>';
+          } else {
+            tooltip_html += '<span>' + hours + ' hours</span></div>';
+          }
+        }
+        var minutes = Math.floor((sec - (days * 86400) - (hours * 3600)) / 60);
+        if ( minutes > 0 ) {
+          if ( days > 0 || hours > 0 ) {
+            tooltip_html += '<div><span></span><span>' + minutes + ' minutes</span></div>';
+          } else {
+            tooltip_html += '<span>' + minutes + ' minutes</span></div>';
+          }
+        }
+        tooltip_html += '<br />';
 
         // Add summary to the tooltip
         for ( var i = 0; i < d.summary.length; i++ ) {
