@@ -2,20 +2,20 @@
 <html>
 <head>
   <title>d3.js calendar heatmap graph</title>
-  <link rel="stylesheet" type="text/css" href="dist/calendar-heatmap.min.css">
+  <link rel="stylesheet" type="text/css" href="src/calendar-heatmap.css">
 </head>
 <body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js" charset="utf-8"></script>
-  <script src="dist/calendar-heatmap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js" charset="utf-8"></script>
+  <script src="src/calendar-heatmap.js"></script>
 
   <script>
     (function () {
       // Initialize random data for the demo
       var now = moment().endOf('day').toDate();
       var time_ago = moment().startOf('day').subtract(10, 'year').toDate();
-      var example_data = d3.time.days(time_ago, now).map(function (dateElement, index) {
+      var example_data = d3.timeDays(time_ago, now).map(function (dateElement, index) {
         return {
           date: dateElement,
           details: Array.apply(null, new Array(Math.floor(Math.random() * 15))).map(function(e, i, arr) {
