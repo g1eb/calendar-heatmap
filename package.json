@@ -1,6 +1,6 @@
 {
   "name": "calendar-heatmap-graph",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "d3.js calendar heatmap graph.",
   "homepage": "https://github.com/g1eb/calendar-heatmap#readme",
   "author": "g1eb <mail@g1eb.com> (https://g1eb.com)",
@@ -17,8 +17,8 @@
     "build": "gulp build"
   },
   "dependencies": {
-    "d3": "^3.5.16",
-    "moment": "^2.13.0"
+    "d3": "^4.10.2",
+    "moment": "^2.18.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
