@@ -84,7 +84,8 @@ var calendarHeatmap = {
       calendarHeatmap.settings.width = container.offsetWidth < 1000 ? 1000 : container.offsetWidth;
       calendarHeatmap.settings.item_size = ((calendarHeatmap.settings.width - calendarHeatmap.settings.label_padding) / numWeeks - calendarHeatmap.settings.gutter);
       calendarHeatmap.settings.height = calendarHeatmap.settings.label_padding + 7 * (calendarHeatmap.settings.item_size + calendarHeatmap.settings.gutter);
-      svg.attr({'width': calendarHeatmap.settings.width, 'height': calendarHeatmap.settings.height});
+      svg.attr('width', calendarHeatmap.settings.width)
+        .attr('height', calendarHeatmap.settings.height);
 
       if ( !!calendarHeatmap.data && !!calendarHeatmap.data[0].summary ) {
         calendarHeatmap.drawChart();
