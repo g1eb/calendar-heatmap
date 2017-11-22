@@ -112,17 +112,15 @@ var data = [{
 
 See [index.html](https://github.com/g1eb/calendar-heatmap/blob/master/index.html) for an example implementation with random data or click <a href="https://rawgit.com/g1eb/calendar-heatmap/master/" target="_blank">here</a> for a live demo.
 
-## React component
-
-If you want to use this heatmap as a React component, see [reactjs-calendar-heatmap](https://github.com/g1eb/reactjs-calendar-heatmap)
-
 ## AngularJS
 
 If you want to use this heatmap as an AngularJS directive (version 1.x), see [angular-calendar-heatmap](https://github.com/g1eb/angular-calendar-heatmap)
 
 Or as an Angular component (version 2.x), see [angular2-calendar-heatmap](https://github.com/g1eb/angular2-calendar-heatmap)
 
-[Calendar heatmap graph angular directive](https://github.com/g1eb/angular-calendar-heatmap)
+## React component
+
+If you want to use this heatmap as a React component, see [reactjs-calendar-heatmap](https://github.com/g1eb/reactjs-calendar-heatmap)
 
 ## Dependencies
 
