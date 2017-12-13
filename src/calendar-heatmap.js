@@ -155,6 +155,7 @@ var calendarHeatmap = {
    * Draw global overview (multiple years)
    */
   drawGlobalOverview: function() {
+
     // Add current overview to the history
     if (calendarHeatmap.history[calendarHeatmap.history.length - 1] !== calendarHeatmap.overview) {
       calendarHeatmap.history.push(calendarHeatmap.overview);
@@ -219,7 +220,7 @@ var calendarHeatmap = {
         return d.year();
       }));
 
-    // Add month data items to the overview
+    // Add global data items to the overview
     calendarHeatmap.items.selectAll('.item-block-year').remove();
     var item_block = calendarHeatmap.items.selectAll('.item-block-year')
       .data(year_data)
@@ -253,7 +254,7 @@ var calendarHeatmap = {
         // Hide tooltip
         calendarHeatmap.hideTooltip();
 
-        // Remove all month overview related items and labels
+        // Remove all global overview related items and labels
         calendarHeatmap.removeGlobalOverview();
 
         // Redraw the chart
@@ -400,13 +401,13 @@ var calendarHeatmap = {
         // Set in_transition flag
         calendarHeatmap.in_transition = true;
 
-        // Set selected month to the one clicked on
+        // Set selected year to the one clicked on
         calendarHeatmap.selected = d;
 
         // Hide tooltip
         calendarHeatmap.hideTooltip();
 
-        // Remove all year overview related items and labels
+        // Remove all global overview related items and labels
         calendarHeatmap.removeGlobalOverview();
 
         // Redraw the chart
