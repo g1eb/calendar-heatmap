@@ -402,7 +402,7 @@ var calendarHeatmap = {
         calendarHeatmap.in_transition = true;
 
         // Set selected year to the one clicked on
-        calendarHeatmap.selected = d;
+        calendarHeatmap.selected = { date: d };
 
         // Hide tooltip
         calendarHeatmap.hideTooltip();
