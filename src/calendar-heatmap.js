@@ -1327,8 +1327,8 @@ var calendarHeatmap = {
       .attr('height', function() {
         return Math.min(projectScale.bandwidth(), calendarHeatmap.settings.max_block_height);
       })
-      .attr('fill', function() {
-        return calendarHeatmap.color || '#ff4500';
+      .attr('fill', function(d) {
+        return d.color || calendarHeatmap.color || '#ff4500';
       })
       .style('opacity', 0)
       .on('mouseover', function(d) {
