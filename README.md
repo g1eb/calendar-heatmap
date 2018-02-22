@@ -84,6 +84,16 @@ var data = [{
 }]
 ```
 
+Additionally you may specify a color to be used as the primary color for that data point in daily overview, for example:
+```
+var data = [{
+  "date": "2017-01-01",
+  "total": 18456,
+  "color": "red",
+  .....
+}]
+```
+
 ### Optimization
 
 In some cases details array could be large and in order to fit the data into the tooltip a short summary is generated with distinct projects and their total tracked time for that date.
