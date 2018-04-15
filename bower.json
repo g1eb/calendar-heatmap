@@ -1,6 +1,6 @@
 {
   "name": "calendar-heatmap-graph",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "d3.js calendar heatmap graph.",
   "homepage": "https://github.com/g1eb/calendar-heatmap",
   "authors": [
