@@ -21,7 +21,9 @@ var calendarHeatmap = {
   /**
    * Initialize
    */
-  init: function(data, color, overview, handler) {
+  init: function(container, data, color, overview, handler) {
+    // Set calendar container
+    calendarHeatmap.container = container;
 
     // Set calendar data
     calendarHeatmap.data = data;
@@ -55,10 +57,22 @@ var calendarHeatmap = {
    * Create html elements for the calendar
    */
   createElements: function() {
-    // Create main html container for the calendar
-    var container = document.createElement('div');
-    container.className = 'calendar-heatmap';
-    document.body.appendChild(container);
+    if (calendarHeatmap.container != null) {
+      // Access container for calendar
+      var container = document.getElementById(calendarHeatmap.container);
+      if (!container || container.tagName != "DIV") {
+        throw 'Element not found or not of type div';
+      }
+      if (!container.classList.contains('calendar-heatmap')) {
+        //If the element being passed doesn't have the right class set then set it.
+        container.classList.add('calendar-heatmap');
+      }
+    } else {
+      // Create main html container for the calendar
+      var container = document.createElement('div');
+      container.className = 'calendar-heatmap';
+      document.body.appendChild(container);
+    }
 
     // Create svg element
     var svg = d3.select(container).append('svg')
