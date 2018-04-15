@@ -53,6 +53,7 @@ npm install calendar-heatmap-graph
 |Property        | Usage           | Default  | Required |
 |:------------- |:-------------|:-----:|:-----:|
 | data | Time series data from max a year back | none | yes |
+| container | Div to place the calendar in | placed where function called | no |
 | color | Theme hex color | #45ff00 | no |
 | overview | Initial overview type (choices are: year, month, day) | year | no |
 | handler | Handler function is fired on click of a time entry in daily overview | none | no |
