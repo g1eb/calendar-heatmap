@@ -21,13 +21,13 @@ var calendarHeatmap = {
   /**
    * Initialize
    */
-  init: function(container, data, color, overview, handler) {
-    // Set calendar container
-    calendarHeatmap.container = container;
-
+  init: function(data, container, color, overview, handler) {
     // Set calendar data
     calendarHeatmap.data = data;
 
+    // Set calendar container
+    calendarHeatmap.container = container;
+    
     // Set calendar color
     calendarHeatmap.color = color || '#ff4500';
 
