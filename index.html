@@ -5,6 +5,8 @@
   <link rel="stylesheet" type="text/css" href="dist/calendar-heatmap.min.css">
 </head>
 <body>
+  
+  <div id="calendar"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js" charset="utf-8"></script>
@@ -38,6 +40,9 @@
           }
         }.init();
       });
+      
+      // Set the div target id
+      var div_id = 'calendar';
 
       // Set custom color for the calendar heatmap
       var color = '#cd2327';
@@ -51,7 +56,7 @@
       };
 
       // Initialize calendar heatmap
-      calendarHeatmap.init(example_data, color, overview, print);
+      calendarHeatmap.init(example_data, div_id, color, overview, print);
     })();
   </script>
 </body>
