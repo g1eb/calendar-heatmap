@@ -332,7 +332,7 @@ var calendarHeatmap = {
         while (calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 5)) {
           x -= 10;
         }
-        var y = calendarHeatmap.settings.tooltip_padding * 3;
+        var y = this.getBoundingClientRect().top + calendarHeatmap.settings.tooltip_padding;
 
         // Show tooltip
         calendarHeatmap.tooltip.html(tooltip_html)
@@ -572,7 +572,7 @@ var calendarHeatmap = {
         if (calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 3)) {
           x -= calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 2;
         }
-        var y = calcItemY(d) + calendarHeatmap.settings.item_size;
+        var y = this.getBoundingClientRect().top + calendarHeatmap.settings.item_size;
 
         // Show tooltip
         calendarHeatmap.tooltip.html(tooltip_html)
@@ -889,7 +889,7 @@ var calendarHeatmap = {
         while (calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 3)) {
           x -= 10;
         }
-        var y = dayScale(moment(date).weekday()) + calendarHeatmap.settings.tooltip_padding * 2;
+        var y = this.getBoundingClientRect().top + calendarHeatmap.settings.tooltip_padding;
 
         // Show tooltip
         calendarHeatmap.tooltip.html(tooltip_html)
@@ -1175,7 +1175,7 @@ var calendarHeatmap = {
         while (calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 3)) {
           x -= 10;
         }
-        var y = dayScale(moment(date).weekday()) + calendarHeatmap.settings.tooltip_padding * 1.5;
+        var y = this.getBoundingClientRect().top + calendarHeatmap.settings.tooltip_padding;
 
         // Show tooltip
         calendarHeatmap.tooltip.html(tooltip_html)
@@ -1359,7 +1359,7 @@ var calendarHeatmap = {
         while (calendarHeatmap.settings.width - x < (calendarHeatmap.settings.tooltip_width + calendarHeatmap.settings.tooltip_padding * 3)) {
           x -= 10;
         }
-        var y = projectScale(d.name) + projectScale.bandwidth() / 2 + calendarHeatmap.settings.tooltip_padding / 2;
+        var y = this.getBoundingClientRect().top + calendarHeatmap.settings.tooltip_padding;
 
         // Show tooltip
         calendarHeatmap.tooltip.html(tooltip_html)
