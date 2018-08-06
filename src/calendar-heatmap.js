@@ -27,7 +27,7 @@ var calendarHeatmap = {
 
     // Set calendar container
     calendarHeatmap.container = container;
-    
+
     // Set calendar color
     calendarHeatmap.color = color || '#ff4500';
 
